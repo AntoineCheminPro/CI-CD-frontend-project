@@ -34,4 +34,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dist
-          path: dist/ 
+          path: dist/
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectBaseDir: .
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: AntoineCheminPro_CI-CD-frontend-project
+          SONAR_ORGANIZATION: antoinecheminpro 
