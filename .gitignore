@@ -1,0 +1,26 @@
+# Dépendances
+node_modules/
+
+# Cache Angular
+.angular/
+
+# Build et couverture
+/dist/
+/coverage/
+
+# Fichiers d'environnement
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE et OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Autres fichiers temporaires
+*.log
