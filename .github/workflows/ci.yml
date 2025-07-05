@@ -45,18 +45,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v2
         with:
           projectBaseDir: .
-          organization: antoinecheminpro
-          projectKey: antoinecheminpro_ci-cd-frontend-project
           args: >
             -Dsonar.javascript.lcov.reportPaths=coverage/bobapp/lcov.info
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          projectBaseDir: .
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: antoinecheminpro_CI-CD-frontend-project
-          SONAR_ORGANIZATION: antoinecheminpro 
