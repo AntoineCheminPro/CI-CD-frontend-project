@@ -24,8 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests
-        run: npm run test -- --watch=false --browsers=ChromeHeadless
+      - name: Run tests with coverage
+        run: npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage
 
       - name: Build application
         run: npm run build -- --configuration=production
@@ -41,7 +41,9 @@ jobs:
         with:
           projectBaseDir: .
           organization: antoinecheminpro
-          projectKey: AntoineCheminPro_CI-CD-frontend-project
+          projectKey: antoinecheminpro_ci-cd-frontend-project
+          args: >
+            -Dsonar.javascript.lcov.reportPaths=coverage/bobapp/lcov.info
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 

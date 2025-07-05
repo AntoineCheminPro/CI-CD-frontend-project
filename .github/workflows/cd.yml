@@ -42,4 +42,15 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/bobapp-frontend:latest
 
       - name: Deploy to production
-        run: echo "Déploiement frontend en production réussi" 
+        run: echo "Déploiement frontend en production réussi"
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectBaseDir: .
+          organization: antoinecheminpro
+          projectKey: antoinecheminpro_ci-cd-frontend-project
+          args: >
+            -Dsonar.javascript.lcov.reportPaths=coverage/bobapp/lcov.info
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
