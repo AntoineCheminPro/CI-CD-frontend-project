@@ -36,6 +36,11 @@ jobs:
           name: dist
           path: dist/
 
+      - name: Debug coverage
+        run: |
+          ls -l coverage/bobapp || echo "dossier coverage/bobapp absent"
+          cat coverage/bobapp/lcov.info || echo "lcov.info not found"
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         with:
